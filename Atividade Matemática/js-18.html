@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Matemática</title>
+</head>
+
+<body>
+
+    <div id="principal">
+        <input type="text" v-model="number1">
+        <input type="text" v-model="number2">
+        <div>
+            <button v-on:click="somar">Somar</button>
+            <button v-on:click="multiplicar">Multiplicar</button>
+            <button v-on:click="dividir">Dividir</button>
+            <button v-on:click="subtrair">Subtrair</button>
+        </div>
+        <p>Resultado: {{ resultado }}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>    
+
+    <script>
+        const app = {
+            data(){
+                return{
+                    number1: 0,
+                    number2: 0,
+                    resultado: 0
+                }
+            },
+            methods: {
+                somar(){
+                    this.resultado = parseInt(this.number1) + parseInt(this.number2);
+                },
+                multiplicar(){
+                    this.resultado = parseInt(this.number1) * parseInt(this.number2);
+                },
+                dividir(){
+                    this.resultado = parseInt(this.number1) / parseInt(this.number2);
+                },
+                subtrair(){
+                    this.resultado = parseInt(this.number1) - parseInt(this.number2);
+                }
+            }
+        }
+        Vue.createApp(app).mount("#principal")
+    </script>
+
+</body>
+</html>
